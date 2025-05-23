@@ -29,9 +29,9 @@ jobs:
             echo "ts=false" >> $GITHUB_OUTPUT
           fi
 
-      - name: Compile TypeScript
-        if: steps.check_ts.outputs.ts == 'true'
-        run: npm run build
+      - name: Compile Extension with Webpack
+        run: npm run compile
+
 
       - name: Install vsce
         run: npm install -g @vscode/vsce
