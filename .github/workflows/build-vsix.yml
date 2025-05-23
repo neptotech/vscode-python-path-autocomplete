@@ -2,7 +2,7 @@ name: Build VSIX Extension
 
 on:
   push:
-    branches: [ main ]  # or `on: workflow_dispatch` to run manually
+    branches: [ main ]  # or use workflow_dispatch to run manually
 
 jobs:
   build:
@@ -20,9 +20,18 @@ jobs:
       - name: Install Dependencies
         run: npm install
 
-      - name: Compile TypeScript (if needed)
+      - name: Check for TypeScript Project
+        id: check_ts
+        run: |
+          if [ -f tsconfig.json ]; then
+            echo "ts=true" >> $GITHUB_OUTPUT
+          else
+            echo "ts=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Compile TypeScript
+        if: steps.check_ts.outputs.ts == 'true'
         run: npm run build
-        if: exists('tsconfig.json')
 
       - name: Install vsce
         run: npm install -g @vscode/vsce
