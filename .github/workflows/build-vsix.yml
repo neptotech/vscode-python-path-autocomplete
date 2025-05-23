@@ -1,0 +1,37 @@
+name: Build VSIX Extension
+
+on:
+  push:
+    branches: [ main ]  # or `on: workflow_dispatch` to run manually
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Compile TypeScript (if needed)
+        run: npm run build
+        if: exists('tsconfig.json')
+
+      - name: Install vsce
+        run: npm install -g @vscode/vsce
+
+      - name: Package VSIX
+        run: vsce package
+
+      - name: Upload VSIX as Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: vsix-package
+          path: ./*.vsix
