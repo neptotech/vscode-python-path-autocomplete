@@ -1,5 +1,9 @@
 # Python Path Autocomplete Extension for Visual Studio Code
+---------------
 
+Its the improved version of MartinChristiaan's extension with support for both `\\` and `/` conventions in python.
+
+-------------
 Enhance your Python development experience in Visual Studio Code with the Python Path Autocomplete extension. This tool provides intelligent autocompletion for file and directory paths within Python string literals, streamlining the process of working with file system paths in your projects.
 
 ## Features
