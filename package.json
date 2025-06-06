@@ -3,6 +3,8 @@
   "displayName": "python-path-autocomplete",
   "description": "",
   "version": "0.0.1",
+  "author": "Neptotech",
+  "publisher": "neptotech",
   "engines": {
     "vscode": "^1.98.0"
   },
