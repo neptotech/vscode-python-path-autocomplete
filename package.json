@@ -1,8 +1,8 @@
 {
-  "name": "python-path-autocomplete",
-  "displayName": "python-path-autocomplete",
+  "name": "python-path-autocomplete-v2",
+  "displayName": "python-path-autocomplete-v2",
   "description": "",
-  "version": "0.0.1",
+  "version": "2.0.0",
   "author": "Neptotech",
   "publisher": "neptotech",
   "engines": {
